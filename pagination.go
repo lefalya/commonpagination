@@ -88,7 +88,6 @@ func Pagination[T interfaces.Item](
 			pagination.cardinalityKeyTrailing = pagination.sortedSetKeyTrailing + ":cardinality"
 		} else {
 			pagination.sortedSetKeyTrailing = descendingTrailing + "createdat" + formattedSuffix
-			pagination.settledKeyTrailing = pagination.sortedSetKeyTrailing + ":settled"
 		}
 
 	} else {
@@ -109,6 +108,8 @@ func Pagination[T interfaces.Item](
 			}
 		}
 	}
+
+	pagination.settledKeyTrailing = pagination.sortedSetKeyTrailing + ":settled"
 
 	return pagination
 }
